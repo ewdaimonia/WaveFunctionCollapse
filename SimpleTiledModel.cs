@@ -4,8 +4,9 @@ using System;
 using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
+using System.Collections;
 
-class SimpleTiledModel : Model
+public class SimpleTiledModel : Model
 {
     List<int[]> tiles;
     List<string> tilenames;
@@ -250,5 +251,18 @@ class SimpleTiledModel : Model
             result.Append(Environment.NewLine);
         }
         return result.ToString();
+    }
+
+    public List<List<string>> ListOutput()
+    {
+        List<List<string>> output = new List<List<string>>();
+        for (int y = 0; y < MY; y++)
+        {
+            output.Add(new List<string>());
+            for (int x = 0; x < MX; x++) {
+                output[y].Append($"{tilenames[observed[x + y * MX]]}");
+            } 
+        }
+        return output;
     }
 }

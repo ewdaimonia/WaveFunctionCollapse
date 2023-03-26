@@ -2,7 +2,7 @@
 
 using System;
 
-abstract class Model
+public abstract class Model
 {
     protected bool[][] wave;
 
@@ -24,7 +24,7 @@ abstract class Model
     protected double[] sumsOfWeights, sumsOfWeightLogWeights, entropies;
 
     public enum Heuristic { Entropy, MRV, Scanline };
-    Heuristic heuristic;
+    public Heuristic heuristic;
 
     protected Model(int width, int height, int N, bool periodic, Heuristic heuristic)
     {
